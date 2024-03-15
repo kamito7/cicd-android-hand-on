@@ -3,7 +3,7 @@ name: CI
 on: pull_request
 
 jobs:
-  check:
+  ceck:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -14,15 +14,15 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-     - run: ./gradlow assemble
-     - run: ./gradlew ktlintCheck
-     - uses: ./.github/workflows/reportLintResults
-     - run: ./gradlew test
-     - uses: actions/upload-artifact@v3
-       with:
-         path: '**/*.apk'
-     - uses: yumemi-inc/comment-pull-request@v1
-       if: cancelled() != true
-       with:
-         comment: 'CI passed.'
-         comment-if-failure: 'CI failed.'
+      - run: ./gradlow assemble
+      - run: ./gradlew ktlintCheck
+      - uses: ./.github/workflows/reportLintResults
+      - run: ./gradlew test
+      - uses: actions/upload-artifact@v3
+         with:
+           path: '**/*.apk'
+      - uses: yumemi-inc/comment-pull-request@v1
+        if: cancelled() != true
+        with:
+          comment: 'CI passed.'
+          comment-if-failure: 'CI failed.'
