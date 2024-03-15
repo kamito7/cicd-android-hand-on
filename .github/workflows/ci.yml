@@ -19,8 +19,8 @@ jobs:
       - uses: ./.github/workflows/reportLintResults
       - run: ./gradlew test
       - uses: actions/upload-artifact@v3
-         with:
-           path: '**/*.apk'
+        with:
+          path: '**/*.apk'
       - uses: yumemi-inc/comment-pull-request@v1
         if: cancelled() != true
         with:
