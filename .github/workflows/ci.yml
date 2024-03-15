@@ -16,4 +16,5 @@ jobs:
           java-version: '17'
      - run: ./gradlow assemble
      - run: ./gradlew ktlintCheck
-     - uses: ./.github/workflows/reportLintResults 
+     - uses: ./.github/workflows/reportLintResults
+     - run: ./gradlew test 
